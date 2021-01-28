@@ -1,0 +1,46 @@
+[
+    {
+        "ACT Symbol": "NOK",
+        "CQS Symbol": "NOK",
+        "Company Name": "Nokia Corporation Sponsored American Depositary Shares",
+        "ETF": "N",
+        "Exchange": "N",
+        "NASDAQ Symbol": "NOK",
+        "Round Lot Size": 100.0,
+        "Security Name": "Nokia Corporation Sponsored American Depositary Shares",
+        "Test Issue": "N"
+    },
+    {
+        "ACT Symbol": "BB",
+        "CQS Symbol": "BB",
+        "Company Name": "BlackBerry",
+        "ETF": "N",
+        "Exchange": "N",
+        "NASDAQ Symbol": "BBF",
+        "Round Lot Size": 100.0,
+        "Security Name": "BlackBerry",
+        "Test Issue": "N"
+    },
+    {
+        "ACT Symbol": "AMC",
+        "CQS Symbol": "AMC",
+        "Company Name": "AMC Entertainment Holdings, Inc. Class A Common Stock",
+        "ETF": "N",
+        "Exchange": "N",
+        "NASDAQ Symbol": "AMC",
+        "Round Lot Size": 100.0,
+        "Security Name": "AMC Entertainment Holdings, Inc. Class A Common Stock",
+        "Test Issue": "N"
+    },
+    {
+        "ACT Symbol": "GME",
+        "CQS Symbol": "GME",
+        "Company Name": "Gamestop Corporation Common Stock",
+        "ETF": "N",
+        "Exchange": "N",
+        "NASDAQ Symbol": "GME",
+        "Round Lot Size": 100.0,
+        "Security Name": "Gamestop Corporation Common Stock",
+        "Test Issue": "N"
+    }
+]

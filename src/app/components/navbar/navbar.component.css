@@ -1,0 +1,14 @@
+h2 {
+    margin: 0;
+}
+
+#navigation-bar {
+    background-color: #545454;
+    padding: 2%;
+}
+
+#navigation-bar > h2{
+    color: white;
+    text-align: center;
+    font-size: 2em;
+}

@@ -1,0 +1,16 @@
+.stock-box {
+    border: black solid 1px;
+    background-color: darkseagreen;
+    width: 3rem;
+    padding: .5% 2.5%;
+    font-weight: 800;
+    margin: 1% 2%;
+}
+
+#stock-container {
+    width: 75%;
+    margin: 2% auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+}

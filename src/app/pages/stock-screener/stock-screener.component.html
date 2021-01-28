@@ -1,0 +1,13 @@
+<div>
+    <app-navbar></app-navbar>
+</div>
+
+<div *ngIf="isLoaded">
+    <div id="stock-container">
+        <div class="stock-box" *ngFor="let stock of stocks; let i = index">
+            <p>{{ stock['NASDAQ Symbol'] }}</p>
+            <p>${{ stockData[i]['latestPrice'] }}</p>
+            <p>{{ stockData[i]['change'] }}</p>
+        </div>
+    </div>
+</div>

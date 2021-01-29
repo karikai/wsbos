@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { APIService } from 'src/app/services/api.service';
 
 @Component({
@@ -7,6 +7,7 @@ import { APIService } from 'src/app/services/api.service';
   styleUrls: ['./stock-screener.component.css']
 })
 export class StockScreenerComponent implements OnInit {
+  @ViewChild('overlay')
   isLoaded = false;
   stocks = [];
   stockData = [];

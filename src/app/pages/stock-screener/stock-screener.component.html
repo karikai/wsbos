@@ -4,7 +4,7 @@
 
 <div id="filter-controls-container">
     <div id="left-button-container">
-        <button>
+        <button (click)="openControls()">
             Add Filter
         </button>
         <br/>
@@ -13,14 +13,14 @@
         </button>
     </div>
     <div id="filter-container">
-        <h4>Volume > 1M</h4>
+        <h4 (click)="openConfiguration()">Volume > 1M</h4>
     </div>
     <div id="left-button-container">
         <button>
             Remove Filter
         </button>
         <br/>
-        <button>
+        <button (click)="openConfiguration()">
             Edit Filter
         </button>
     </div>
@@ -36,4 +36,36 @@
     </div>
 </div>
 
-<div #overlay id="overlay"></div>
+<div (click)="disableTopWindow()" *ngIf="isControlling || isConfiguring" #overlay id="overlay"></div>
+
+<div id="filter-selector-container" *ngIf="isControlling">
+    <div id="filter-choices">
+        <h4 (click)="openConfiguration()">Price</h4>
+    </div>
+
+    <div id="filter-grouping">
+        <h4>Filter by</h4>
+        <div id="filter-options">
+            <h4>Stock Information</h4>
+            <h4>Option Information</h4>
+            <h4>Other</h4>
+        </div>
+
+        <h4>Sort by</h4>
+        <div id="sort-options">
+            <h4>Going up by Volume</h4>
+        </div>
+    </div>
+</div>
+
+<div id="filter-configure-container" *ngIf="isConfiguring">
+    <h4>Price</h4>
+    <select id="comparison-box">
+        <option value="great">Greater Than</option>
+        <option value="less">Less Than</option>
+    </select>
+    <br>
+    <input id="comparison-value" type="text">
+    <br>
+    <button (click)="disableTopWindow()">DONE</button>
+</div>

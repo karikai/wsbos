@@ -8,6 +8,8 @@ export class APIService {
     static IEX_BASE_URL = 'https://cloud.iexapis.com/';
     static PRIVATE_KEY = 'pk_fc4857bc809645fb98c7bfa9132d259d ';
     static getQuoteRouteEnding(ticker) { return `stable/stock/${ticker}/quote?token=` }
+    static getOptionsChainsRouteEnding(ticker) { return `stable/stock/${ticker}/options?token=` }
+    static getOptionEnding(ticker, date, side) { return `stable/stock/${ticker}/options/${date}/${side}?token=` }
    
     
     static getAllStockTickers() {
@@ -45,15 +47,53 @@ export class APIService {
         })
     }
 
-    static getLatestOptionChain() : Promise<any> {
+    static getLatestOptionChain(ticker: string) : Promise<any> {
         return new Promise<any>((resolve, reject) => {
-            fetch
+            let isError = false;
+            let data = null;
+
+            fetch(this.IEX_BASE_URL + APIService.getOptionsChainsRouteEnding(ticker) + APIService.PRIVATE_KEY)
+            .then((resp) => {
+                data = resp.json();
+            })
+            .catch((err) => {
+                if (err) {
+                    isError = true;
+                    console.log(err)
+                }
+            })
+            .finally(() => {
+                if (isError) {
+                    reject(false)
+                } else {
+                    resolve(data)
+                }
+            })
         })
     }
 
-    static getLatestOptionInformation() : Promise<any> {
+    static getLatestOptionInformation(ticker) : Promise<any> {
         return new Promise<any>((resolve, reject) => {
-            fetch
+            let isError = false;
+            let data = null;
+
+            fetch(this.IEX_BASE_URL + APIService.getOptionsChainsRouteEnding(ticker) + APIService.PRIVATE_KEY)
+            .then((resp) => {
+                data = resp.json();
+            })
+            .catch((err) => {
+                if (err) {
+                    isError = true;
+                    console.log(err)
+                }
+            })
+            .finally(() => {
+                if (isError) {
+                    reject(false)
+                } else {
+                    resolve(data)
+                }
+            })
         })
     }
     

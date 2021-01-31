@@ -6,10 +6,6 @@ import { WelcomeComponent } from './pages/welcome/welcome.component';
 const routes: Routes = [
   {
     path: '',
-    component: WelcomeComponent
-  },
-  {
-    path: 'stock-screener',
     component: StockScreenerComponent
   },
 ];

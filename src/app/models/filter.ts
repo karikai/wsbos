@@ -3,6 +3,10 @@ export class Filter {
   filterDataType: string;
   filterValue: string;
 
+  constructor() {
+
+  }
+
   static objectToFilter(tempObject): Filter {
     const filter = new Filter();
 
@@ -12,4 +16,12 @@ export class Filter {
     return filter;
   }
 
+  static newFilter(name, type) : Filter {
+    const filter = new Filter();
+
+    filter.filterName = name;
+    filter.filterDataType = type;
+
+    return filter;
+  }
 }

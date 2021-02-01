@@ -38,33 +38,22 @@
 <div (click)="disableTopWindow()" *ngIf="isControlling || isConfiguring" #overlay id="overlay"></div>
 
 <div id="filter-selector-container" *ngIf="isControlling">
-    <div id="filter-choices">
-        <h4 (click)="openConfiguration()">Price</h4>
-        <h4 (click)="openConfiguration()">Price</h4>
-        <h4 (click)="openConfiguration()">Price</h4>
-        <h4 (click)="openConfiguration()">Price</h4>
-        <h4 (click)="openConfiguration()">Price</h4>
-        <h4 (click)="openConfiguration()">Price</h4>
-        <h4 (click)="openConfiguration()">Price</h4>
-        <h4 (click)="openConfiguration()">Price</h4>
-        <h4 (click)="openConfiguration()">Price</h4>
-        <h4 (click)="openConfiguration()">Price</h4>
-        <h4 (click)="openConfiguration()">Price</h4>
-        <h4 (click)="openConfiguration()">Price</h4>
-        <h4 (click)="openConfiguration()">Price</h4>
-        <h4 (click)="openConfiguration()">Price</h4>
-        <h4 (click)="openConfiguration()">Price</h4>
-        <h4 (click)="openConfiguration()">Price</h4>
-        <h4 (click)="openConfiguration()">Price</h4>
-        <h4 (click)="openConfiguration()">Price</h4>
+    <div id="filter-choices" *ngIf="filterMode === filterConstants.stockMode">
+        <h4 *ngFor="let filter of stockFilters" (click)="openConfiguration()">{{ filter.filterName }}</h4>
+    </div>
+    <div id="filter-choices" *ngIf="filterMode === filterConstants.optionMode">
+        <h4 *ngFor="let filter of optionsFilters" (click)="openConfiguration()">{{ filter.filterName }}</h4>
+    </div>
+    <div id="filter-choices" *ngIf="filterMode === filterConstants.otherMode">
+        <h4 *ngFor="let filter of otherFilters" (click)="openConfiguration()">{{ filter.filterName }}</h4>
     </div>
 
     <div id="filter-grouping">
         <h4>Filter by</h4>
         <div id="filter-options">
-            <h4>Stock Information</h4>
-            <h4>Option Information</h4>
-            <h4>Other</h4>
+            <h4 (click)="changeFilterMode(filterConstants.stockMode)">Stock Information</h4>
+            <h4 (click)="changeFilterMode(filterConstants.optionMode)" >Option Information</h4>
+            <h4 (click)="changeFilterMode(filterConstants.otherMode)">Other</h4>
         </div>
 
         <h4>Sort by</h4>
@@ -83,5 +72,5 @@
     <br>
     <input id="comparison-value" type="text">
     <br>
-    <button (click)="disableTopWindow()">DONE</button>
+    <button (click)="addFilter()">DONE</button>
 </div>

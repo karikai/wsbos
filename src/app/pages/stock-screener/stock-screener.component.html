@@ -12,8 +12,8 @@
             Download
         </button>
     </div>
-    <div id="filter-container">
-        <h4 (click)="openConfiguration()">Volume > 1M</h4>
+    <div id="filter-container" *ngFor="let filter of activeFilters">
+        <h4 (click)="openConfiguration()">{{ filter.filterName }}</h4>
     </div>
     <div id="left-button-container">
         <button>
@@ -29,9 +29,8 @@
 <div *ngIf="isLoaded">
     <div id="stock-container">
         <div class="stock-box" *ngFor="let stock of stocks; let i = index">
-            <p>{{ stock['NASDAQ Symbol'] }}</p>
-            <p>${{ stockData[i]['latestPrice'] }}</p>
-            <p>{{ stockData[i]['change'] }}</p>
+            <p>{{ stock.ticker }}</p>
+            <p>${{ stock.price }}</p>
         </div>
     </div>
 </div>
@@ -40,6 +39,23 @@
 
 <div id="filter-selector-container" *ngIf="isControlling">
     <div id="filter-choices">
+        <h4 (click)="openConfiguration()">Price</h4>
+        <h4 (click)="openConfiguration()">Price</h4>
+        <h4 (click)="openConfiguration()">Price</h4>
+        <h4 (click)="openConfiguration()">Price</h4>
+        <h4 (click)="openConfiguration()">Price</h4>
+        <h4 (click)="openConfiguration()">Price</h4>
+        <h4 (click)="openConfiguration()">Price</h4>
+        <h4 (click)="openConfiguration()">Price</h4>
+        <h4 (click)="openConfiguration()">Price</h4>
+        <h4 (click)="openConfiguration()">Price</h4>
+        <h4 (click)="openConfiguration()">Price</h4>
+        <h4 (click)="openConfiguration()">Price</h4>
+        <h4 (click)="openConfiguration()">Price</h4>
+        <h4 (click)="openConfiguration()">Price</h4>
+        <h4 (click)="openConfiguration()">Price</h4>
+        <h4 (click)="openConfiguration()">Price</h4>
+        <h4 (click)="openConfiguration()">Price</h4>
         <h4 (click)="openConfiguration()">Price</h4>
     </div>
 

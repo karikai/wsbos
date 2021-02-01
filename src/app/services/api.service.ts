@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import * as stocks from '../models/tickers.json'
+import { Stock } from '../models/stock';
+import * as stocks from '../models/tickers.json';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,19 @@ export class APIService {
     static getOptionEnding(ticker, date, side) { return `stable/stock/${ticker}/options/${date}/${side}?token=` }
    
     
-    static getAllStockTickers() {
-        return stocks;
+    static getAllStockTickers() : Array<Stock> {
+        let stockList = [];
+        //@ts-ignore
+        (stocks.default).forEach((stock) => {
+            let newStock = new Stock();
+            newStock.ticker = stock['Symbol'];
+            newStock.companyName = stock['Name'];
+            newStock.sector = stock['Sector'];
+            newStock.industry = stock['Industry'];
+
+            stockList.push(newStock)
+        })
+        return stockList;
     }
 
     static getLatestStockPrice(ticker: string) : Promise<any> {

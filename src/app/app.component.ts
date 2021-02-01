@@ -9,7 +9,6 @@ import { APIService } from './services/api.service';
   providers: [AppState]
 })
 export class AppComponent {
-  title = 'wsbos';
 
   constructor(
     state: AppState,

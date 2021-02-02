@@ -22,13 +22,13 @@ export class StockScreenerComponent implements OnInit {
     this.getStockInfo()
     .then((doneGettingStockInfo) => {
       if (doneGettingStockInfo) {
-        // this.getOptionsInfo()
-        // .then((res) => {
+        this.getOptionInfo()
+        .then((res) => {
+          console.log(res)
           this.isLoaded = true;
-        // })
+        })
       }
     })
-   
   }
 
   ngOnInit() {
@@ -37,7 +37,7 @@ export class StockScreenerComponent implements OnInit {
 
   addFilter(filterName, filterValue, ) {
     let filter = new Filter();
-    filter.filterName = 
+    // filter.filterName = 
     this.activeFilters.push()
   }
 
@@ -67,17 +67,25 @@ export class StockScreenerComponent implements OnInit {
     })
   }
 
-  getOptionChain() {
-
+  getOptionChain() : Promise<boolean> {
+    return new Promise<boolean>((resolve, reject) => {
+      for (let index = 0; index < this.stocks.length; index++) {
+        if (this.stocks[index].isOptionable) {
+          APIService.getLatestOptionChain(this.stocks[index].ticker)
+          .then((info) => {
+            this.stocks[index].chain = info;
+          }) 
+        }
+      }
+      resolve(true)
+    })
   }
 
   getOptionInfo() : Promise<boolean> {
     return new Promise<boolean>((resolve, reject) => {
       for (let index = 0; index < this.stocks.length; index++) {
-        let stock = this.stocks[index]
-        let stockInfo = null
-        console.log(stock)
-        APIService.getLatestOptionChain(stock['ACT Symbol']).then((info) => {
+        APIService.getLatestOptionInformation(this.stocks[index].ticker)
+        .then((info) => {
           console.log(info)
         })
       }
@@ -85,13 +93,7 @@ export class StockScreenerComponent implements OnInit {
     })
   }
 
-  // to ensure all data is connected properly use a linked list to attach the options
-
-  /*
-    2. Create Test Data for options to use
-    3. Implement saving configuration functionality
-    4. Implement conversations on popular calls/puts which is publically accessible
-  */
+  // View Controller Functions
 
   openControls() {
     this.isControlling = true;

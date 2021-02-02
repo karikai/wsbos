@@ -18,13 +18,12 @@ export class StockScreenerComponent implements OnInit {
 
   constructor() {
     this.stocks = APIService.getAllStockTickers().slice(0,19);
-    console.log(this.stocks)
     this.getStockInfo()
     .then((doneGettingStockInfo) => {
       if (doneGettingStockInfo) {
-        this.getOptionInfo()
+        this.getOptionChains()
         .then((res) => {
-          console.log(res)
+          console.log(this.stocks)
           this.isLoaded = true;
         })
       }
@@ -46,7 +45,6 @@ export class StockScreenerComponent implements OnInit {
       for (let index = 0; index < this.stocks.length; index++) {
         APIService.getLatestStockPrice(this.stocks[index].ticker)
         .then((info) => {
-          console.log(info)
           if (info !== null) {
             this.stocks[index].price = info['latestPrice']
             this.stocks[index].prevClose = info['previousClose']
@@ -67,15 +65,15 @@ export class StockScreenerComponent implements OnInit {
     })
   }
 
-  getOptionChain() : Promise<boolean> {
+  getOptionChains() : Promise<boolean> {
     return new Promise<boolean>((resolve, reject) => {
       for (let index = 0; index < this.stocks.length; index++) {
-        if (this.stocks[index].isOptionable) {
+        // if (this.stocks[index].isOptionable) {
           APIService.getLatestOptionChain(this.stocks[index].ticker)
           .then((info) => {
             this.stocks[index].chain = info;
           }) 
-        }
+        // }
       }
       resolve(true)
     })
@@ -86,7 +84,6 @@ export class StockScreenerComponent implements OnInit {
       for (let index = 0; index < this.stocks.length; index++) {
         APIService.getLatestOptionInformation(this.stocks[index].ticker)
         .then((info) => {
-          console.log(info)
         })
       }
       resolve(true)

@@ -7,7 +7,7 @@ import * as stocks from '../models/tickers.json';
 })
 export class APIService {
     static IEX_BASE_URL = 'https://cloud.iexapis.com/';
-    static PRIVATE_KEY = 'pk_fc4857bc809645fb98c7bfa9132d259d ';
+    static PRIVATE_KEY = 'pk_8c30288186da4084951c1b26c94f4099 ';
     static getQuoteRouteEnding(ticker) { return `stable/stock/${ticker}/quote?token=` }
     static getOptionsChainsRouteEnding(ticker) { return `stable/stock/${ticker}/options?token=` }
     static getOptionEnding(ticker, date, side) { return `stable/stock/${ticker}/options/${date}/${side}?token=` }

@@ -29,13 +29,13 @@ export class StockScreenerComponent implements OnInit {
     this.getStockInfo()
     .then((doneGettingStockInfo) => {
       if (doneGettingStockInfo) {
-        // this.getOptionsInfo()
-        // .then((res) => {
+        this.getOptionChains()
+        .then((res) => {
+          console.log(this.stocks)
           this.isLoaded = true;
-        // })
+        })
       }
     })
-   
   }
 
   ngOnInit() {
@@ -59,7 +59,6 @@ export class StockScreenerComponent implements OnInit {
       for (let index = 0; index < this.stocks.length; index++) {
         APIService.getLatestStockPrice(this.stocks[index].ticker)
         .then((info) => {
-          console.log(info)
           if (info !== null) {
             this.stocks[index].price = info['latestPrice']
             this.stocks[index].prevClose = info['previousClose']
@@ -80,31 +79,32 @@ export class StockScreenerComponent implements OnInit {
     })
   }
 
-  getOptionChain() {
-
+  getOptionChains() : Promise<boolean> {
+    return new Promise<boolean>((resolve, reject) => {
+      for (let index = 0; index < this.stocks.length; index++) {
+        // if (this.stocks[index].isOptionable) {
+          APIService.getLatestOptionChain(this.stocks[index].ticker)
+          .then((info) => {
+            this.stocks[index].chain = info;
+          }) 
+        // }
+      }
+      resolve(true)
+    })
   }
 
   getOptionInfo() : Promise<boolean> {
     return new Promise<boolean>((resolve, reject) => {
       for (let index = 0; index < this.stocks.length; index++) {
-        let stock = this.stocks[index]
-        let stockInfo = null
-        console.log(stock)
-        APIService.getLatestOptionChain(stock['ACT Symbol']).then((info) => {
-          console.log(info)
+        APIService.getLatestOptionInformation(this.stocks[index].ticker)
+        .then((info) => {
         })
       }
       resolve(true)
     })
   }
 
-  // to ensure all data is connected properly use a linked list to attach the options
-
-  /*
-    2. Create Test Data for options to use
-    3. Implement saving configuration functionality
-    4. Implement conversations on popular calls/puts which is publically accessible
-  */
+  // View Controller Functions
 
   openControls() {
     this.isControlling = true;

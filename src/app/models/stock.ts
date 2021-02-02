@@ -2,8 +2,9 @@ export class Stock {
   ticker: string;
   companyName: string;
   index: string;
-  shortable: boolean;
-  optionable: boolean;
+  isShortable: boolean;
+  isOptionable: boolean;
+  chain: Array<string>;
   annualSales: number;
   annualIncome: number;
   dividend: number;
@@ -33,8 +34,9 @@ export class Stock {
     stock.ticker = tempObject.ticker;
     stock.companyName = tempObject.companyName;
     stock.index = tempObject.index;
-    stock.shortable = tempObject.shortable;
-    stock.optionable = tempObject.optionable;
+    stock.isShortable = tempObject.isShortable;
+    stock.isOptionable = tempObject.isOptionable;
+    stock.chain = tempObject.chain;
     stock.annualSales = tempObject.annualSales;
     stock.annualIncome = tempObject.annualIncome;
     stock.dividend = tempObject.dividend;

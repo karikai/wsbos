@@ -16,8 +16,9 @@ export class StockScreenerComponent implements OnInit {
   // Stock/Option Variables
   stocks: Array<Stock> = [];
   activeStocks: Array<Stock> = [];
-  activeFilters: Array<Filter> = [];
   // Filtering Variables
+  lastSelectedFilter: Filter;
+  activeFilters: Array<Filter> = [];
   filterConstants = FilterModes;
   filterMode = FilterModes.stockMode;
   stockFilters: Array<Filter> = StockFilterOptions.options;
@@ -42,17 +43,7 @@ export class StockScreenerComponent implements OnInit {
 
   }
 
-  addFilter(filterValue) {
-    if (filterValue !== null) {
-      this.activeFilters.push()
-    }
-
-    this.disableTopWindow();
-  }
-
-  changeFilterMode(mode) {
-    this.filterMode = mode;
-  }
+  // API Operations
 
   getStockInfo() : Promise<boolean> {
     return new Promise<boolean>((resolve, reject) => {
@@ -110,7 +101,8 @@ export class StockScreenerComponent implements OnInit {
     this.isControlling = true;
   }
 
-  openConfiguration() {
+  openConfiguration(filter) {
+    this.lastSelectedFilter = filter;
     this.isConfiguring = true;
   }
 
@@ -120,5 +112,17 @@ export class StockScreenerComponent implements OnInit {
     } else {
       this.isControlling = false
     }
+  }
+
+  addFilter() {
+    if (this.lastSelectedFilter !== null) {
+      this.activeFilters.push(this.lastSelectedFilter)
+    }
+
+    this.disableTopWindow();
+  }
+
+  changeFilterMode(mode) {
+    this.filterMode = mode;
   }
 }

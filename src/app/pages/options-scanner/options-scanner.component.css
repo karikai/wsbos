@@ -12,7 +12,7 @@
     margin: 2% auto;
     display: flex;
     flex-wrap: wrap;
-    justify-content: start;
+    justify-content: flex-start;
 }
 
 #stock-container {
@@ -20,7 +20,7 @@
     margin: 2% auto;
     display: flex;
     flex-wrap: wrap;
-    justify-content: start;
+    justify-content: flex-start;
 }
 
 #filter-controls-container {

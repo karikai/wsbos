@@ -5,11 +5,11 @@ import { Stock } from 'src/app/models/stock';
 import { APIService } from 'src/app/services/api.service';
 
 @Component({
-  selector: 'app-stock-screener',
-  templateUrl: './stock-screener.component.html',
-  styleUrls: ['./stock-screener.component.css']
+  selector: 'app-options-scanner',
+  templateUrl: './options-scanner.component.html',
+  styleUrls: ['./options-scanner.component.css']
 })
-export class StockScreenerComponent implements OnInit {
+export class OptionsScannerComponent implements OnInit {
   isLoaded = false;
   isControlling = false;
   isConfiguring = false;
@@ -78,6 +78,9 @@ export class StockScreenerComponent implements OnInit {
           .then((info) => {
             this.stocks[index].chain = info;
           }) 
+          .catch((err) => {
+            console.log(err)
+          }) 
         // }
       }
       resolve(true)
@@ -89,6 +92,10 @@ export class StockScreenerComponent implements OnInit {
       for (let index = 0; index < this.stocks.length; index++) {
         APIService.getLatestOptionInformation(this.stocks[index].ticker)
         .then((info) => {
+          
+        })
+        .catch((err) => {
+
         })
       }
       resolve(true)

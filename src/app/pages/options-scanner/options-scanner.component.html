@@ -30,7 +30,7 @@
     <div id="stock-container">
         <div class="stock-box" *ngFor="let stock of stocks; let i = index">
             <p>{{ stock.ticker }}</p>
-            <p>${{ stock.price }}</p>
+            <p>${{ stock.price | number : '1.0-2' }}</p>
         </div>
     </div>
 </div>

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OptionChainComponent } from './option-chain.component';
+import { OptionsScannerComponent } from './options-scanner.component';
 
-describe('OptionChainComponent', () => {
-  let component: OptionChainComponent;
-  let fixture: ComponentFixture<OptionChainComponent>;
+describe('OptionsScannerComponent', () => {
+  let component: OptionsScannerComponent;
+  let fixture: ComponentFixture<OptionsScannerComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OptionChainComponent ]
+      declarations: [ OptionsScannerComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(OptionChainComponent);
+    fixture = TestBed.createComponent(OptionsScannerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

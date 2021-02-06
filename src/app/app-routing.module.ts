@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { StockScreenerComponent } from './pages/stock-screener/stock-screener.component';
-import { WelcomeComponent } from './pages/welcome/welcome.component';
+import { RouterModule, Routes } from '@angular/router';
+import { OptionsScannerComponent } from './pages/options-scanner/options-scanner.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: StockScreenerComponent
+    component: OptionsScannerComponent
   },
 ];
 

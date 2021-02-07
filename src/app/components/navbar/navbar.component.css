@@ -7,6 +7,15 @@ h2 {
     padding: 2%;
 }
 
+#navigation-bar > .links {
+    width: 20%;
+    font-weight: 700;
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+    text-align: center;
+}
+
 #navigation-bar > img {
     height: 4rem;
     width: 4rem;

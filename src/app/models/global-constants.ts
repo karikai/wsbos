@@ -12,6 +12,12 @@ export class FilterModes {
     static otherMode = 2;
 }
 
+export class FilterComparisons {
+    static EQUALS = 0;
+    static LESS_THAN = 1;
+    static GREATER_THAN = 2;
+}
+
 export class StockFilterOptions {
     static options = [
         Filter.newFilter('Price', FilterDataTypes.numberType),

@@ -84,12 +84,12 @@ export class APIService {
         })
     }
 
-    static getLatestOptionInformation(ticker) : Promise<any> {
+    static getLatestOptionInformation(ticker: string, date: string, side: string) : Promise<any> {
         return new Promise<any>((resolve, reject) => {
             let isError = false;
             let data = null;
 
-            fetch(this.IEX_BASE_URL + APIService.getOptionsChainsRouteEnding(ticker) + APIService.PRIVATE_KEY)
+            fetch(this.IEX_BASE_URL + APIService.getOptionEnding(ticker, date, side) + APIService.PRIVATE_KEY)
             .then((resp) => {
                 data = resp.json();
             })

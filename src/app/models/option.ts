@@ -1,11 +1,16 @@
+import { Stock } from "./stock";
+
 export class Option {
   ticker: string;
   expirationDate: string;
   optionType: string;
+  strike: number;
   bid: number;
   bidAmount: number;
   ask: number;
   askAmount: number;
+  close: number;
+  open: number;
   high: number;
   low: number;
   volume: number;
@@ -16,6 +21,7 @@ export class Option {
   theta: number;
   vega: number;
   rho: number;
+  stock: Stock;
 
   static objectToOption(tempObject): Option {
     const option = new Option();

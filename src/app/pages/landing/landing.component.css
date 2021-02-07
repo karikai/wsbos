@@ -1,0 +1,46 @@
+.header-container {
+    width: 60%;
+    margin: auto;
+    text-align: center;
+}
+
+.price-container {
+    width: 60%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.price-container > div {
+    width: 25%;
+    padding: 2%;
+    margin: 5% auto;
+    text-align: center;
+    border: 1px solid rgb(196, 196, 196);
+}
+
+.left-container {
+
+}
+
+.right-container {
+
+}
+
+.price-container > div > button {
+    width: 40%;
+    padding: 4.5% 7%;
+    margin: auto;
+    margin-top: 25%;
+    border: 0px;
+    border-radius: 2rem;
+    color: white;
+}
+
+#free-button {
+    background-color: grey;
+}
+
+#paid-button {
+    background-color: gold;
+}

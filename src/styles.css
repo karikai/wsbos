@@ -3,10 +3,5 @@
 body {
     margin: 0;
     background-color: white;
-}
-
-button {
-    background: white;
-    color: black;
-    padding: 5% 15%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

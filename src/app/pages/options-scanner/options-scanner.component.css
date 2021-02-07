@@ -143,11 +143,32 @@
     cursor: pointer;
 }
 
-#filter-configure-container > h4{
+#filter-configure-container > h4 {
     font-size: 2rem;
     margin: 0%;
 }
 
 #filter-configure-container > * {
     margin: 2% 0;
+}
+
+#stock-table {
+    margin: auto;
+}
+
+#stock-table > tr > * {
+    text-align: center;
+    border: 1px solid grey;
+    width: auto;
+    padding: 0 2%;
+}
+
+#stock-table {
+    margin: auto;
+}
+
+button {
+    background: white;
+    color: black;
+    padding: 5% 15%;
 }

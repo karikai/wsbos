@@ -1,8 +1,8 @@
-<div>
+<div *ngIf="isLoaded">
     <app-navbar></app-navbar>
 </div>
 
-<div id="filter-controls-container">
+<div id="filter-controls-container" *ngIf="isLoaded">
     <div id="left-button-container">
         <button (click)="openControls()">
             Add Filter
@@ -27,12 +27,30 @@
 </div>
 
 <div *ngIf="isLoaded">
-    <div id="stock-container">
-        <div class="stock-box" *ngFor="let stock of stocks; let i = index">
-            <p>{{ stock.ticker }}</p>
-            <p>${{ stock.price | number : '1.0-2' }}</p>
-        </div>
-    </div>
+    <table id="stock-table">
+        <tr>
+            <th>Ticker Symbol</th>
+            <th>Expiration Date</th>
+            <th>Stock Price</th>
+            <th>Strike Price</th>
+            <th>Market Cap</th>
+            <th>Option Volume</th>
+            <th>Open Interest</th>
+            <th>Bid Price</th>
+            <th>Ask Price</th>
+        </tr>
+        <tr *ngFor="let contract of activeOptions; let i = index">
+            <td>{{ contract.stock.ticker }}</td>
+            <td>{{ contract.expirationDate }}</td>
+            <td>${{ contract.stock.price }}</td>
+            <td>${{ contract.strike }}</td>
+            <td>{{ contract.stock.marketCap | thousandSuff : 2}}</td>
+            <td>{{ contract.volume | thousandSuff : 2}}</td>
+            <td>{{ contract.openInterest | thousandSuff : 2}}</td>
+            <td>${{ contract.bid }}</td>
+            <td>${{ contract.ask }}</td>
+        </tr>
+    </table>
 </div>
 
 <div (click)="disableTopWindow()" *ngIf="isControlling || isConfiguring" #overlay id="overlay"></div>

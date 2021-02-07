@@ -1,5 +1,6 @@
 export class Filter {
   filterName: string;
+  filterComparison: string;
   filterDataType: string;
   filterValue: string;
 

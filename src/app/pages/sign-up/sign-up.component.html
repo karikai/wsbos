@@ -1,1 +1,17 @@
-<p>sign-up works!</p>
+<app-navbar></app-navbar>
+
+<div class="sign-up-container">
+    <div class="left-container">
+        <h1>Create an <br> Account</h1>
+        <h3>Option Screening</h3>
+        <h3>Post Option Tips</h3>
+        <h3>Communicate with Greate Traders</h3>
+    </div>
+
+    <div class="right-container">
+        <input type="text" [(ngModel)]="username" placeholder="Username">
+        <input type="email" [(ngModel)]="email" placeholder="Email Address">
+        <input type="password" [(ngModel)]="password" placeholder="Password">
+        <button (click)="createUser()" >Register</button>
+    </div>
+</div>

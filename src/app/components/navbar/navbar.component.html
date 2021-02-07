@@ -1,12 +1,12 @@
 <div id="navigation-bar">
     <img src="../../../assets/wsbos-logo.png">
     <div class="links" *ngIf="!isSignedIn">
-        <a>Home</a>
+        <a routerLink="">Home</a>
         <a>Search</a>
-        <a>Sign In</a>
+        <a routerLink="sign-in">Sign In</a>
     </div>
     <div class="links" *ngIf="isSignedIn">
-        <a>Feed</a>
+        <a routerLink="">Feed</a>
         <a>Search</a>
         <a>Profile</a>
         <a>Sign Out</a>

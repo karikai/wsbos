@@ -16,6 +16,12 @@ h2 {
     text-align: center;
 }
 
+#navigation-bar > .links > a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
 #navigation-bar > img {
     height: 4rem;
     width: 4rem;

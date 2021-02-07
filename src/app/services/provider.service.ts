@@ -5,6 +5,6 @@ import { AppState } from '../models/appState'
   providedIn: 'root'
 })
 export class ProviderService {
-    app : AppState;
+    app : AppState = new AppState();
     constructor() { }
 }

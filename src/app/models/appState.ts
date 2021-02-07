@@ -1,4 +1,6 @@
+import { User } from "./user";
+
 export class AppState {
-    isActive : boolean;
-    
+    isActive: boolean;
+    activeUser: User;
 }

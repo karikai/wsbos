@@ -1,0 +1,12 @@
+<app-navbar></app-navbar>
+
+<div class="sign-in-container">
+    <h1>Sign In</h1>
+
+    <p *ngIf="errorMessage !== ''">{{ errorMessage }}</p>
+
+    <input type="text" [(ngModel)]="email" placeholder="Email Address">
+    <input type="text" [(ngModel)]="password" placeholder="Password">
+
+    <button (click)="login()">Log In</button>
+</div>
